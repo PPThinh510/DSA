@@ -206,3 +206,83 @@ bool updateCandidate(HashTable& table, string examId) {
 
     return true;
 }
+
+void searchByFullName(HashTable table, string fullName) {
+    bool found = false;
+    
+    for (int i = 0; i < TABLE_SIZE; i++) {
+        Node* current = table.bucket[i];
+        
+        while (current != nullptr) {
+            if (current->data.fullName.find(fullName) != string::npos) {
+                if (!found) {
+                    cout << BOLD << YELLOW << "\n=== KET QUA TIM KIEM ===\n" << RESET;
+                    cout << BOLD << BLUE;
+                    cout << left
+                         << setw(12) << "Ma DT"
+                         << setw(30) << "Ho ten"
+                         << setw(12) << "Gioi tinh"
+                         << setw(15) << "Ngay sinh"
+                         << setw(20) << "Que quan"
+                         << endl << RESET;
+                    cout << string(100, '-') << endl;
+                }
+                
+                cout << left
+                     << setw(12) << current->data.examId
+                     << setw(30) << current->data.fullName
+                     << setw(12) << current->data.gender
+                     << setw(15) << current->data.birthDate
+                     << setw(20) << current->data.hometown
+                     << endl;
+                
+                found = true;
+            }
+            current = current->next;
+        }
+    }
+    
+    if (!found) {
+        cout << RED << "Khong tim thay!\n" << RESET;
+    }
+}
+
+void searchByHometown(HashTable table, string hometown) {
+    bool found = false;
+    
+    for (int i = 0; i < TABLE_SIZE; i++) {
+        Node* current = table.bucket[i];
+        
+        while (current != nullptr) {
+            if (current->data.hometown.find(hometown) != string::npos) {
+                if (!found) {
+                    cout << BOLD << YELLOW << "\n=== KET QUA TIM KIEM ===\n" << RESET;
+                    cout << BOLD << BLUE;
+                    cout << left
+                         << setw(12) << "Ma DT"
+                         << setw(30) << "Ho ten"
+                         << setw(12) << "Gioi tinh"
+                         << setw(15) << "Ngay sinh"
+                         << setw(20) << "Que quan"
+                         << endl << RESET;
+                    cout << string(100, '-') << endl;
+                }
+                
+                cout << left
+                     << setw(12) << current->data.examId
+                     << setw(30) << current->data.fullName
+                     << setw(12) << current->data.gender
+                     << setw(15) << current->data.birthDate
+                     << setw(20) << current->data.hometown
+                     << endl;
+                
+                found = true;
+            }
+            current = current->next;
+        }
+    }
+    
+    if (!found) {
+        cout << RED << "Khong tim thay!\n" << RESET;
+    }
+}

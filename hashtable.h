@@ -30,4 +30,8 @@ bool deleteCandidate(HashTable& table, string examId);
 
 bool updateCandidate(HashTable& table, string examId);
 
+void searchByFullName(HashTable table, string fullName);
+
+void searchByHometown(HashTable table, string hometown);
+
 #endif

@@ -18,4 +18,4 @@ TS014|Nguyen Thu Trang|Nu|28/02/2005|Nam Dinh
 TS016|Pham Bao Uyen|Nu|17/04/2005|Quang Ngai
 TS017|Hoang Viet Vu|Nam|09/05/2005|Dak Lak
 TS018|Vo Thanh Xuan|Nu|21/06/2005|Khanh Hoa
-TS020|Bui Duc Zuy|Nam|24/08/2005|An 
+TS020|Bui Duc Zuy|Nam|24/08/2005|Ho Chi Minh
