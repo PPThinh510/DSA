@@ -31,3 +31,5 @@ bool deleteCandidate(HashTable& table, string examId);
 bool updateCandidate(HashTable& table, string examId);
 
 #endif
+string generateExamId(HashTable table);
+void thongKeGioiTinh(HashTable table, int numRooms);
