@@ -206,21 +206,6 @@ bool updateCandidate(HashTable& table, string examId) {
 
     return true;
 }
-string generateExamId(HashTable table) {
-    int count = 0;
-    for (int i = 0; i < TABLE_SIZE; i++) {
-        Node* current = table.bucket[i];
-        while (current != nullptr) {
-            count++;
-            current = current->next;
-        }
-    }
-    string id = to_string(count + 1);
-    while (id.length() < 4) {
-        id = "0" + id;
-    }
-    return "TS" + id;
-}
 
 void thongKeGioiTinh(HashTable table, int numRooms) {
     int tongNam = 0;
