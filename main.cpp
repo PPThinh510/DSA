@@ -172,7 +172,7 @@ int main() {
             int numRooms;
             cout << "Nhap so luong phong thi: ";
             cin >> numRooms;
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore();
 
             if (numRooms > 0)
                 distributeToRooms(table, numRooms);
@@ -187,7 +187,8 @@ int main() {
 
             cout << "Nhap so luong phong thi: ";
             cin >> numRooms;
-            cin.ignore();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
             thongKeGioiTinh(table, numRooms);
 
             break;

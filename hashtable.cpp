@@ -31,6 +31,9 @@ int hashFunction(string fullName) {
 
     string lastName = getLastName(fullName);
 
+    if (lastName.empty())
+        return 0;
+
     char firstChar = toupper(lastName[0]);
 
     if (firstChar < 'A' || firstChar > 'Z')
@@ -257,7 +260,7 @@ string generateExamId(HashTable table) {
         }
     }
     string id = to_string(count + 1);
-    while (id.length() < 4) {
+    while (id.length() < 3) {
         id = "0" + id;
     }
     return "TS" + id;
