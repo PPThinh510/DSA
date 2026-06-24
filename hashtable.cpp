@@ -257,7 +257,7 @@ string generateExamId(HashTable table) {
         }
     }
     string id = to_string(count + 1);
-    while (id.length() < 4) {
+    while (id.length() < 3) {
         id = "0" + id;
     }
     return "TS" + id;

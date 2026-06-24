@@ -187,7 +187,8 @@ int main() {
 
             cout << "Nhap so luong phong thi: ";
             cin >> numRooms;
-            cin.ignore();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
             thongKeGioiTinh(table, numRooms);
 
             break;
