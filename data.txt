@@ -1,6 +1,5 @@
 TS001|Nguyen Van An|Nam|15/01/2005|Ha Noi
 TS002|Tran Thi Binh|Nu|22/02/2005|Da Nang
--23|Phan Phuc Cho |Gay|-21/02//20328|Campuchia
 TS003|Le Quoc Cuong|Nam|10/03/2005|Can Tho
 TS004|Pham Thu Dung|Nu|05/04/2005|Hai Phong
 TS005|Hoang Gia Huy|Nam|18/05/2005|Binh Duong
@@ -14,6 +13,7 @@ TS011|Do Gia Phuc|Nam|25/11/2005|Long An
 TS012|Truong Thi Quynh|Nu|03/12/2005|Ben Tre
 TS0022|Vu Quan|Nam|10/10|Sai Gon
 TS013|Le Minh Son|Nam|14/01/2005|Tien Giang
+TS022|Phan Phuc Thinh|nam|5|An Giang
 TS015|Tran Anh Tuan|Nam|06/03/2005|Thanh Hoa
 TS014|Nguyen Thu Trang|Nu|28/02/2005|Nam Dinh
 TS016|Pham Bao Uyen|Nu|17/04/2005|Quang Ngai

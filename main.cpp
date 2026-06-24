@@ -16,11 +16,13 @@ void menu() {
     cout << YELLOW << "1." << RESET << " Them thi sinh\n";
     cout << YELLOW << "2." << RESET << " Hien thi danh sach\n";
     cout << YELLOW << "3." << RESET << " Tim kiem theo ma du thi\n";
-    cout << YELLOW << "4." << RESET << " Cap nhat thi sinh\n";
-    cout << YELLOW << "5." << RESET << " Xoa thi sinh\n";
-    cout << YELLOW << "6." << RESET << " Luu du lieu\n";
-    cout << YELLOW << "7." << RESET << " Phan phong thi (To uu chu cai dau)\n";
-    cout << YELLOW << "8." << RESET << " Thong ke gioi tinh\n"; 
+    cout << YELLOW << "4." << RESET << " Tim kiem theo ho ten\n";
+    cout << YELLOW << "5." << RESET << " Tim kiem theo que quan\n";
+    cout << YELLOW << "6." << RESET << " Cap nhat thi sinh\n";
+    cout << YELLOW << "7." << RESET << " Xoa thi sinh\n";
+    cout << YELLOW << "8." << RESET << " Luu du lieu\n";
+    cout << YELLOW << "9." << RESET << " Phan phong thi (To uu chu cai dau)\n";
+    cout << YELLOW << "10." << RESET << " Thong ke gioi tinh\n"; 
     cout << RED << "0." << RESET << " Thoat\n";
     cout << CYAN << "=====================================\n" << RESET;
     cout << "Lua chon: ";
@@ -105,6 +107,30 @@ int main() {
 
         case 4: {
 
+            string fullName;
+
+            cout << "Nhap ho ten can tim: ";
+            getline(cin, fullName);
+
+            searchByFullName(table, fullName);
+
+            break;
+        }
+
+        case 5: {
+
+            string hometown;
+
+            cout << "Nhap que quan can tim: ";
+            getline(cin, hometown);
+
+            searchByHometown(table, hometown);
+
+            break;
+        }
+
+        case 6: {
+
             string examId;
 
             cout << "Nhap ma du thi can cap nhat: ";
@@ -118,7 +144,7 @@ int main() {
             break;
         }
 
-        case 5: {
+        case 7: {
 
             string examId;
 
@@ -133,7 +159,7 @@ int main() {
             break;
         }
 
-        case 6:
+        case 8:
 
             saveToFile(table, "data.txt");
 
@@ -141,12 +167,12 @@ int main() {
 
             break;
 
-        case 7: {
+        case 9: {
 
             int numRooms;
             cout << "Nhap so luong phong thi: ";
             cin >> numRooms;
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore();
 
             if (numRooms > 0)
                 distributeToRooms(table, numRooms);
@@ -155,7 +181,7 @@ int main() {
 
             break;
         }
-        case 8: {
+        case 10: {
 
             int numRooms;
 
