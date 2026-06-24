@@ -34,4 +34,7 @@ void searchByFullName(HashTable table, string fullName);
 
 void searchByHometown(HashTable table, string hometown);
 
-#endif
+string generateExamId(HashTable table);
+void thongKeGioiTinh(HashTable table, int numRooms);
+
+#endif // HASHTABLE_H

@@ -247,6 +247,62 @@ void searchByFullName(HashTable table, string fullName) {
     }
 }
 
+string generateExamId(HashTable table) {
+    int count = 0;
+    for (int i = 0; i < TABLE_SIZE; i++) {
+        Node* current = table.bucket[i];
+        while (current != nullptr) {
+            count++;
+            current = current->next;
+        }
+    }
+    string id = to_string(count + 1);
+    while (id.length() < 4) {
+        id = "0" + id;
+    }
+    return "TS" + id;
+}
+
+void thongKeGioiTinh(HashTable table, int numRooms) {
+    int tongNam = 0;
+    int tongNu = 0;
+    for (int i = 0; i < TABLE_SIZE; i++) {
+        Node* current = table.bucket[i];
+        while (current != nullptr) {
+            if (current->data.gender == "Nam" || current->data.gender == "nam") {
+                tongNam++;
+            } else if (current->data.gender == "Nu" || current->data.gender == "nu" || current->data.gender == "Nữ" || current->data.gender == "nữ") {
+                tongNu++;
+            }
+            current = current->next;
+        }
+    }
+    
+    cout << "Tong Nam: " << tongNam << endl;
+    cout << "Tong Nu: " << tongNu << endl;
+    if (numRooms <= 0) return;
+    for (int r = 0; r < numRooms; r++) {
+        int namPhong = 0;
+        int nuPhong = 0;
+        int globalCount = 0;
+        for (int i = 0; i < TABLE_SIZE; i++) {
+            Node* current = table.bucket[i];
+            while (current != nullptr) {
+                if (globalCount % numRooms == r) {
+                    if (current->data.gender == "Nam" || current->data.gender == "nam") {
+                        namPhong++;
+                    } else if (current->data.gender == "Nu" || current->data.gender == "nu" || current->data.gender == "Nữ" || current->data.gender == "nữ") {
+                        nuPhong++;
+                    }
+                }
+                globalCount++;
+                current = current->next;
+            }
+        }
+        cout << "Phong " << r + 1 << " - Nam: " << namPhong << ", Nu: " << nuPhong << endl;
+    }
+}
+
 void searchByHometown(HashTable table, string hometown) {
     bool found = false;
     

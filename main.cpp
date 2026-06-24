@@ -22,6 +22,7 @@ void menu() {
     cout << YELLOW << "7." << RESET << " Xoa thi sinh\n";
     cout << YELLOW << "8." << RESET << " Luu du lieu\n";
     cout << YELLOW << "9." << RESET << " Phan phong thi (To uu chu cai dau)\n";
+    cout << YELLOW << "10." << RESET << " Thong ke gioi tinh\n"; 
     cout << RED << "0." << RESET << " Thoat\n";
     cout << CYAN << "=====================================\n" << RESET;
     cout << "Lua chon: ";
@@ -51,8 +52,10 @@ int main() {
 
             Candidate c;
 
-            cout << "Ma du thi: ";
-            getline(cin, c.examId);
+            c.examId = generateExamId(table);
+
+            cout << "Ma du thi tu dong: "
+                 << c.examId << endl;
 
             cout << "Ho ten: ";
             getline(cin, c.fullName);
@@ -175,6 +178,17 @@ int main() {
                 distributeToRooms(table, numRooms);
             else
                 cout << RED << "So luong phong phai lon hon 0!\n" << RESET;
+
+            break;
+        }
+        case 10: {
+
+            int numRooms;
+
+            cout << "Nhap so luong phong thi: ";
+            cin >> numRooms;
+            cin.ignore();
+            thongKeGioiTinh(table, numRooms);
 
             break;
         }
