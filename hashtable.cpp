@@ -31,6 +31,9 @@ int hashFunction(string fullName) {
 
     string lastName = getLastName(fullName);
 
+    if (lastName.empty())
+        return 0;
+
     char firstChar = toupper(lastName[0]);
 
     if (firstChar < 'A' || firstChar > 'Z')

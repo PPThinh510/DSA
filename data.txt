@@ -13,6 +13,7 @@ TS011|Do Gia Phuc|Nam|25/11/2005|Long An
 TS012|Truong Thi Quynh|Nu|03/12/2005|Ben Tre
 TS021|Vu Quan|Nam|10/10/2005|Sai Gon
 TS013|Le Minh Son|Nam|14/01/2005|Tien Giang
+TS022|Phan Phuc Thinh|nam|5|An Giang
 TS015|Tran Anh Tuan|Nam|06/03/2005|Thanh Hoa
 TS014|Nguyen Thu Trang|Nu|28/02/2005|Nam Dinh
 TS016|Pham Bao Uyen|Nu|17/04/2005|Quang Ngai
