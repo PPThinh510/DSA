@@ -1,3 +1,8 @@
+#ifdef _WIN32
+#include <windows.h>
+#endif // Vì việc chạy các lệnh in màu trên máy của PPThinh510 không hiển thị
+//Một cách bình thường nên cần các thư viện và hàm đặc thù riêng
+
 #include <iostream>
 #include <limits>
 
@@ -21,7 +26,7 @@ void menu() {
     cout << YELLOW << "6." << RESET << " Cap nhat thi sinh\n";
     cout << YELLOW << "7." << RESET << " Xoa thi sinh\n";
     cout << YELLOW << "8." << RESET << " Luu du lieu\n";
-    cout << YELLOW << "9." << RESET << " Phan phong thi (To uu chu cai dau)\n";
+    cout << YELLOW << "9." << RESET << " Phan phong thi\n";
     cout << YELLOW << "10." << RESET << " Thong ke gioi tinh\n"; 
     cout << RED << "0." << RESET << " Thoat\n";
     cout << CYAN << "=====================================\n" << RESET;
@@ -29,6 +34,17 @@ void menu() {
 }
 
 int main() {
+#ifdef _WIN32// Hàm đặc thù hỗ trợ biên dịch cho máy của PPThinh510
+    // Kich hoat ho tro ma mau ANSI tren Console Windows
+    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    if (hOut != INVALID_HANDLE_VALUE) {
+        DWORD dwMode = 0;
+        if (GetConsoleMode(hOut, &dwMode)) {
+            dwMode |= 0x0004; // ENABLE_VIRTUAL_TERMINAL_PROCESSING
+            SetConsoleMode(hOut, dwMode);
+        }
+    }
+#endif
 
     HashTable table;
 
@@ -187,7 +203,7 @@ int main() {
 
             cout << "Nhap so luong phong thi: ";
             cin >> numRooms;
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.ignore();
 
             thongKeGioiTinh(table, numRooms);
 
