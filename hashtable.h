@@ -30,5 +30,15 @@ bool deleteCandidate(HashTable& table, string examId);
 
 bool updateCandidate(HashTable& table, string examId);
 
-#endif
+void searchByFullName(HashTable table, string fullName);
+void searchByHometown(HashTable table, string hometown);
+string generateExamId(HashTable table);
 void thongKeGioiTinh(HashTable table, int numRooms);
+
+// Ham tien ich chuan hoa va kiem tra
+string normalizeName(string name);
+bool isValidDate(string dateStr);
+bool isValidGender(string& genderStr);
+string normalizeExamId(string id);
+
+#endif // HASHTABLE_H
