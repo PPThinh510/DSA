@@ -30,11 +30,5 @@ bool deleteCandidate(HashTable& table, string examId);
 
 bool updateCandidate(HashTable& table, string examId);
 
-void searchByFullName(HashTable table, string fullName);
-
-void searchByHometown(HashTable table, string hometown);
-
-string generateExamId(HashTable table);
+#endif
 void thongKeGioiTinh(HashTable table, int numRooms);
-
-#endif // HASHTABLE_H

@@ -52,10 +52,18 @@ int main() {
 
             Candidate c;
 
-            c.examId = generateExamId(table);
-
-            cout << "Ma du thi tu dong: "
-                 << c.examId << endl;
+            do {
+                cout << "Nhap ma du thi: ";
+                getline(cin, c.examId);
+                
+                if (c.examId.empty()) {
+                    cout << RED << "Ma du thi khong duoc de trong! Vui long nhap lai.\n" << RESET;
+                } else if (findCandidate(table, c.examId) != nullptr) {
+                    cout << RED << "Ma du thi da ton tai! Vui long nhap lai.\n" << RESET;
+                } else {
+                    break;
+                }
+            } while (true);
 
             cout << "Ho ten: ";
             getline(cin, c.fullName);
