@@ -31,6 +31,9 @@ int hashFunction(string fullName) {
 
     string lastName = getLastName(fullName);
 
+    if (lastName.empty())
+        return 0;
+
     char firstChar = toupper(lastName[0]);
 
     if (firstChar < 'A' || firstChar > 'Z')
@@ -207,6 +210,62 @@ bool updateCandidate(HashTable& table, string examId) {
     return true;
 }
 
+void searchByFullName(HashTable table, string fullName) {
+    bool found = false;
+    
+    for (int i = 0; i < TABLE_SIZE; i++) {
+        Node* current = table.bucket[i];
+        
+        while (current != nullptr) {
+            if (current->data.fullName.find(fullName) != string::npos) {
+                if (!found) {
+                    cout << BOLD << YELLOW << "\n=== KET QUA TIM KIEM ===\n" << RESET;
+                    cout << BOLD << BLUE;
+                    cout << left
+                         << setw(12) << "Ma DT"
+                         << setw(30) << "Ho ten"
+                         << setw(12) << "Gioi tinh"
+                         << setw(15) << "Ngay sinh"
+                         << setw(20) << "Que quan"
+                         << endl << RESET;
+                    cout << string(100, '-') << endl;
+                }
+                
+                cout << left
+                     << setw(12) << current->data.examId
+                     << setw(30) << current->data.fullName
+                     << setw(12) << current->data.gender
+                     << setw(15) << current->data.birthDate
+                     << setw(20) << current->data.hometown
+                     << endl;
+                
+                found = true;
+            }
+            current = current->next;
+        }
+    }
+    
+    if (!found) {
+        cout << RED << "Khong tim thay!\n" << RESET;
+    }
+}
+
+string generateExamId(HashTable table) {
+    int count = 0;
+    for (int i = 0; i < TABLE_SIZE; i++) {
+        Node* current = table.bucket[i];
+        while (current != nullptr) {
+            count++;
+            current = current->next;
+        }
+    }
+    string id = to_string(count + 1);
+    while (id.length() < 4) {
+        id = "0" + id;
+    }
+    return "TS" + id;
+}
+
 void thongKeGioiTinh(HashTable table, int numRooms) {
     int tongNam = 0;
     int tongNu = 0;
@@ -221,6 +280,7 @@ void thongKeGioiTinh(HashTable table, int numRooms) {
             current = current->next;
         }
     }
+    
     cout << "Tong Nam: " << tongNam << endl;
     cout << "Tong Nu: " << tongNu << endl;
     if (numRooms <= 0) return;

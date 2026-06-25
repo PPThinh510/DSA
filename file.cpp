@@ -39,6 +39,9 @@ void loadFromFile(HashTable& table, string filename) {
 
     while (getline(inFile, line)) {
 
+        if (line.empty())
+            continue;
+
         stringstream ss(line);
 
         Candidate c;
